@@ -1,0 +1,33 @@
+library(pacman)
+p_load(tidyverse, stargazer, broom)
+
+library(readr)
+fertility <- read_csv("C:/Users/dougd/OneDrive/University of Oregon School Work/UofO 2019-2020/Fall/Econ 320/Code/Directory/fertility.csv")
+View(fertility)
+
+Simple Regression -> Fertility = $/beta_1 + $/beta_2 educ + %/upsilon_1
+
+
+lm(fertility)
+
+m1 <- lm(kids ~ educ , data = fertility)
+
+stargazer(m1, type = "html", out = "models.htm")
+
+Outputs:
+table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>kids</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">educ</td><td>-0.215<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.040)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>5.091<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.544)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>177</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.140</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.135</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.405 (df = 175)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>28.556<sup>***</sup> (df = 1; 175)</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
